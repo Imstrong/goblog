@@ -7,31 +7,36 @@ import (
 	"strings"
 	"os"
 	"html/template"
+	"os/exec"
 )
 
 func main() {
-	fmt.Print("serveice started, listening at 9090\n")
+	fmt.Print("serveice started, listening at 80\n")
 	http.HandleFunc("/", route)
-	err := http.ListenAndServe(":9090", http.DefaultServeMux)
+	err := http.ListenAndServe(":80", http.DefaultServeMux)
 	if err != nil {
 		log.Fatal("ListenAndServe", err)
+	}else{
+		cmd := exec.Command("cmd /C start http://localhost:80")
+		err := cmd.Start()
+		if err!=nil{
+			fmt.Print(err)
+		}
 	}
 }
 func route(writer http.ResponseWriter, request *http.Request) {
 	uri := request.RequestURI
 	log.Printf("Request URL : %s\n", uri)
-	if uri == "/" {
+	//以/static/开头的为静态资源请求，直接使用其路径获取文件并写出为流
+	if strings.HasPrefix(uri, "/static/") || uri == "/favicon.ico" {
+		resolveStatic(uri)
+		http.ServeFile(writer, request, uri[1:])
+	} else {
 		t := resolveControl(uri)
 		if t != nil {
 			t.Execute(writer, nil)
 		} else {
 			fmt.Printf("no mapping found for path: %s\n", uri)
-		}
-	} else {
-		//以/static/开头的为静态资源请求，直接使用其路径获取文件并写出为流
-		if strings.HasPrefix(uri, "/static/") {
-			resolveStatic(uri)
-			http.ServeFile(writer, request, uri[1:])
 		}
 	}
 }
@@ -58,7 +63,6 @@ func resolveControl(ctrlName string) (*template.Template) {
 		t = nil
 	}
 	return t
-	return nil
 }
 func login() string {
 	return "views/login.tpl"

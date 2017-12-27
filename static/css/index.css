@@ -12,6 +12,7 @@ a {
 }
 
 body {
+    overflow-x: hidden;
     background: url("../img/banner.jpg");
     -webkit-background-size: 100% 100%;
     background-size: cover;
@@ -184,7 +185,18 @@ button {
     line-height: 30px;
     background: #20252aee
 }
-
+.footer-content{
+    line-height:30px;
+}
+.footer-content a{
+    color:#fff;
+}
+.footer-content img{
+    position:relative;
+    top:2px;
+    width:15px;
+    height:15px;
+}
 section {
     color: #fff;
 }
@@ -306,12 +318,15 @@ section {
 }
 
 .text-section {
-    position: relative;
+    /*position: relative;*/
     top: 40px;
-    left: 40px;
+    padding: 40px;
     width: 55%;
     letter-spacing: 1px;
     color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .text-section > * {

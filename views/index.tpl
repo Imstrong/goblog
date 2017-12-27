@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="/static/css/normalize.css">
+    {{/*<link rel="icon" href="/static/img/icon.png">*/}}
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
@@ -131,6 +132,7 @@
 <div class="footer">
     <div class="footer-content">
         <p>Copyright © 2018 - 2019 装逼之王. All Rights Reserved.</p>
+        <a href=""><img src="/static/img/beian.png"/> 粤ICP备17165463号-1</a>
         <p>版权所有，违者必究</p>
     </div>
 </div>
