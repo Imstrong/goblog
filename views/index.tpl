@@ -14,7 +14,7 @@
         <ul>
             <li><a href="">归档</a></li>
             <li><a href="">留言</a></li>
-            <li><a href="about.html">关于我</a></li>
+            <li><a href="/about">关于我</a></li>
             <menu class="menu"></menu>
         </ul>
     </div>

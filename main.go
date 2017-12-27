@@ -3,34 +3,78 @@ package main
 import (
 	"net/http"
 	"log"
-	"html/template"
 	"fmt"
 	"strings"
+	"os"
+	"html/template"
 )
 
 func main() {
-	//http.HandleFunc("/static/*",resolveStatic)
-	http.HandleFunc("/",route)
-	fmt.Print("serveice started, listening at 9090")
-	err := http.ListenAndServe(":9090",nil)
+	fmt.Print("serveice started, listening at 9090\n")
+	http.HandleFunc("/", route)
+	err := http.ListenAndServe(":9090", http.DefaultServeMux)
 	if err != nil {
-		log.Fatal("ListenAndServe",err)
+		log.Fatal("ListenAndServe", err)
 	}
 }
-func route(writer http.ResponseWriter,request *http.Request) {
+func route(writer http.ResponseWriter, request *http.Request) {
 	uri := request.RequestURI
-	log.Print(uri)
-	var t *template.Template
-	if uri=="/" {
-		t, _ = template.ParseFiles("views/index.tpl")
-	}else{
-		if strings.HasPrefix(uri,"/static/") {
-			t,_ = template.ParseFiles(uri)
+	log.Printf("Request URL : %s\n", uri)
+	if uri == "/" {
+		t := resolveControl(uri)
+		if t != nil {
+			t.Execute(writer, nil)
+		} else {
+			fmt.Printf("no mapping found for path: %s\n", uri)
+		}
+	} else {
+		//以/static/开头的为静态资源请求，直接使用其路径获取文件并写出为流
+		if strings.HasPrefix(uri, "/static/") {
+			resolveStatic(uri)
+			http.ServeFile(writer, request, uri[1:])
 		}
 	}
-	if t != nil {
-		t.Execute(writer, nil)
-	}else {
-		fmt.Printf("no mapping found for path: %s\n",uri)
+}
+
+func resolveControl(ctrlName string) (*template.Template) {
+	var t *template.Template
+	var err error
+	switch ctrlName {
+	case "", "/", "/index":
+		t, err = template.ParseFiles(index())
+		break
+	case "/about":
+		t, err = template.ParseFiles(about())
+		break
+	case "/login":
+		t, err = template.ParseFiles(login())
+		break
+	default:
+		t, err = nil, nil
+		break
+	}
+	if err != nil && os.IsNotExist(err) {
+		log.Printf("no napping found for path %s\n", ctrlName)
+		t = nil
+	}
+	return t
+	return nil
+}
+func login() string {
+	return "views/login.tpl"
+}
+func index() string {
+	return "views/index.tpl"
+}
+func about() string {
+	return "views/about.tpl"
+}
+func resolveStatic(uri string) {
+	fmt.Printf("%s\n", uri[1:])
+	file, err := os.Open(uri[1:])
+	defer file.Close()
+
+	if err != nil && os.IsNotExist(err) {
+		fmt.Printf("File not found: %s\n", uri)
 	}
 }
