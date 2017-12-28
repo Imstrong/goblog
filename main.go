@@ -7,7 +7,6 @@ import (
 	"strings"
 	"os"
 	"html/template"
-	"os/exec"
 )
 
 func main() {
@@ -16,12 +15,6 @@ func main() {
 	err := http.ListenAndServe(":80", http.DefaultServeMux)
 	if err != nil {
 		log.Fatal("ListenAndServe", err)
-	}else{
-		cmd := exec.Command("cmd /C start http://localhost:80")
-		err := cmd.Start()
-		if err!=nil{
-			fmt.Print(err)
-		}
 	}
 }
 func route(writer http.ResponseWriter, request *http.Request) {
@@ -32,46 +25,61 @@ func route(writer http.ResponseWriter, request *http.Request) {
 		resolveStatic(uri)
 		http.ServeFile(writer, request, uri[1:])
 	} else {
-		t := resolveControl(uri)
-		if t != nil {
-			t.Execute(writer, nil)
-		} else {
-			fmt.Printf("no mapping found for path: %s\n", uri)
-		}
+		resolveControl(writer,uri)
 	}
 }
 
-func resolveControl(ctrlName string) (*template.Template) {
-	var t *template.Template
+func resolveControl(w http.ResponseWriter,ctrlName string){
 	var err error
 	switch ctrlName {
 	case "", "/", "/index":
-		t, err = template.ParseFiles(index())
+		index(w,r)
 		break
 	case "/about":
-		t, err = template.ParseFiles(about())
+		about(w,r)
 		break
 	case "/login":
-		t, err = template.ParseFiles(login())
+		login(w,r)
 		break
 	default:
-		t, err = nil, nil
 		break
 	}
 	if err != nil && os.IsNotExist(err) {
 		log.Printf("no napping found for path %s\n", ctrlName)
-		t = nil
 	}
-	return t
 }
-func login() string {
-	return "views/login.tpl"
+func login(w http.ResponseWriter,r *http.Request) {
+	if r.Method=="GET" {
+		t, err := template.ParseFiles("views/login.tpl")
+		if err != nil {
+			if os.IsNotExist(err) {
+				log.Printf("mapping not found : %v\n", err)
+			}
+		}
+		t.Execute(w, nil)
+		return
+	}
+	if r.Method=="POST" {
+
+	}
 }
-func index() string {
-	return "views/index.tpl"
+func index(w http.ResponseWriter) {
+	t,err:=template.ParseFiles("views/index.tpl")
+	if err != nil {
+		if os.IsNotExist(err) {
+			log.Printf("mapping not found : %v\n",err)
+		}
+	}
+	t.Execute(w,nil)
 }
-func about() string {
-	return "views/about.tpl"
+func about(w http.ResponseWriter) {
+	t,err:=template.ParseFiles("views/about.tpl")
+	if err != nil {
+		if os.IsNotExist(err) {
+			log.Printf("mapping not found : %v\n",err)
+		}
+	}
+	t.Execute(w,nil)
 }
 func resolveStatic(uri string) {
 	fmt.Printf("%s\n", uri[1:])

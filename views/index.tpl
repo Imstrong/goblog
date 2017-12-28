@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>追影子的人</title>
     <link rel="stylesheet" href="/static/css/normalize.css">
-    {{/*<link rel="icon" href="/static/img/icon.png">*/}}
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
 <div class="hair"><p>欢迎访问，请<a href="/login">登录</a></p></div>
 <div class="header">
     <div class="navbar">
-        <div class="logo"><a href="">笑与君歌</a></div>
+        <div class="logo"><a href="">追影子的人</a></div>
         <ul>
-            <li><a href="">归档</a></li>
-            <li><a href="">留言</a></li>
+            <li><a href="/file">归档</a></li>
+            <li><a href="/leave_message">留言</a></li>
             <li><a href="/about">关于我</a></li>
             <menu class="menu"></menu>
         </ul>
@@ -22,9 +21,9 @@
     <div id="banner">
         <div class="inner">
             <div class="hr"></div>
-            <h2>龙老师</h2>
+            <h2>装逼之王</h2>
             <div class="hr"></div>
-            <p class="inner_inf">爱吃的孩子都是好孩子</p>
+            <p class="inner_inf">爱装逼的孩子都是好孩子</p>
             <button>了解我</button>
             <div class="more">更多</div>
             <div class="more-ico"></div>
@@ -132,7 +131,7 @@
 <div class="footer">
     <div class="footer-content">
         <p>Copyright © 2018 - 2019 装逼之王. All Rights Reserved.</p>
-        <a href=""><img src="/static/img/beian.png"/> 粤ICP备17165463号-1</a>
+        <a href="http://www.miitbeian.gov.cn/"><img src="/static/img/beian.png"/> 粤ICP备17165463号-1</a>
         <p>版权所有，违者必究</p>
     </div>
 </div>
