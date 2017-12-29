@@ -12,11 +12,16 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="head">登录<a href="/">笑与君歌</a>账号</div>
-        <div class="hr"></div>
-        <div class="label"><input type="text" name="username" placeholder="用户名"></div>
-        <div class="label"><input type="password" name="password" placeholder="密码"></div>
-        <div class="label"><button>登 录</button></div>
+        <div class="login_bg"></div>
+        <div class="login_field">
+            <div class="head">登录<a href="/">影子</a>账号</div>
+            <div class="hr"></div>
+            <div class="label"><input type="text" name="username" placeholder="用户名"></div>
+            <div class="label"><input type="password" name="password" placeholder="密码"></div>
+            <div class="label">
+                <button>登 录</button>
+            </div>
+        </div>
     </div>
 </div>
 <div class="footer">
