@@ -18,9 +18,6 @@ func ResolveControl(w http.ResponseWriter,r *http.Request, ctrlName string) {
 		break
 	case "/login":
 		Login(w, r)
-		break
-	default:
-		break
 	}
 	if err != nil && os.IsNotExist(err) {
 		log.Printf("no napping found for path %s\n", ctrlName)

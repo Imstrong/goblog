@@ -10,7 +10,7 @@
 <div class="hair"><p>欢迎访问，请<a href="/login">登录</a></p></div>
 <div class="header">
     <div class="navbar">
-        <div class="logo"><a href="/">笑与君歌</a></div>
+        <div class="logo"><a href="/">追影子的人</a></div>
     </div>
 </div>
 <div class="content">
@@ -18,9 +18,9 @@
         <div class="profile-wrapper">
             <img src="static/img/icon.jpg" alt=""/>
         </div>
-        <h2>龙老师</h2>
-        <p>农历 1994.08.21 湖南娄底</p>
-        <p>光荣的人民教师</p>
+        <h2>装逼之王</h2>
+        <p>农历 1994.08.23 甘肃天水</p>
+        <p>垃圾程序员</p>
         <div class="socialities">
             <div class="social-group">
                 <div class="social-wrapper"><a href="https://weibo.com/u/2965281877" target="_blank" title="访问我的微博"><img src="static/img/weibo.png"/></a></div>

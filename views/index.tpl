@@ -33,9 +33,9 @@
 <section class="section-4" id="green-section">
     <div class="wrapper">
         <div>
-            <h2>萌即正义</h2>
+            <h2>装逼之势，愈演愈烈</h2>
             <div class="hr"></div>
-            <p class="sub_heading">千贯卖汝痴，万贯卖汝呆。现卖尽多送，要赊随我来。
+            <p class="sub_heading">装逼是种恶习，可我似乎戒不掉了。
             </p>
         </div>
         <div class="icon-group">
