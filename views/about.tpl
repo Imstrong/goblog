@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="static/css/about.css">
 </head>
 <body>
-<div class="hair"><p>欢迎访问，请<a href="/login">登录</a></p></div>
+<div class="hair"><p>欢迎访问，{{if not .Data}}请<a href="/login">登录</a>{{else}}<a href="/about">{{.Data}}</a>{{end}}</p></div>
 <div class="header">
     <div class="navbar">
         <div class="logo"><a href="/">追影子的人</a></div>
@@ -49,13 +49,14 @@
             </div>
         </div>
         <div class="poet">
-            做人如果没梦想，跟咸鱼有什么分别呢？
+            追逐影子的人，自己就是影子。
         </div>
     </div>
 </div>
 <div class="footer">
     <div class="footer-content">
         <p>Copyright © 2018 - 2019 装逼之王. All Rights Reserved.</p>
+        <a href="http://www.miitbeian.gov.cn/"><img src="/static/img/beian.png"/> 粤ICP备17165463号-1</a>
         <p>版权所有，违者必究</p>
     </div>
 </div>

@@ -62,14 +62,6 @@ a {
     border-radius: 0.2em;
 }
 
-.footer {
-    line-height: 30px;
-    color: #eee;
-    width: 500px;
-    text-align: center;
-    margin: 0 auto;
-}
-
 label {
     width: 80px;
     display: inline-flex;

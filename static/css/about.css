@@ -104,6 +104,18 @@ body {
     background: #20252aee;
     margin-top:700px;
 }
+.footer-content{
+    line-height:30px;
+}
+.footer-content a{
+    color:#fff;
+}
+.footer-content img{
+    position:relative;
+    top:2px;
+    width:15px;
+    height:15px;
+}
 .photo-wrapper > *{
     float:left;
 }

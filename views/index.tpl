@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
-<div class="hair"><p>欢迎访问，请<a href="/login">登录</a></p></div>
+<div class="hair"><p>欢迎访问，{{if not .Data}}请<a href="/login">登录</a>{{else}}<a href="/about">{{.Data}}</a>{{end}}</p></div>
 <div class="header">
     <div class="navbar">
         <div class="logo"><a href="">追影子的人</a></div>

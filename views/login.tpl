@@ -14,13 +14,16 @@
     <div class="content">
         <div class="login_bg"></div>
         <div class="login_field">
-            <div class="head">登录<a href="/">影子</a>账号</div>
-            <div class="hr"></div>
-            <div class="label"><input type="text" name="username" placeholder="用户名"></div>
-            <div class="label"><input type="password" name="password" placeholder="密码"></div>
-            <div class="label">
-                <button>登 录</button>
-            </div>
+            <form action="/login" method="post">
+                <div class="head">登录<a href="/">影子</a>账号</div>
+                <div class="hr"></div>
+                <div class="label"><input type="text" name="username" placeholder="用户名"></div>
+                <div class="label"><input type="password" name="password" placeholder="密码"></div>
+                <div class="label">
+                    <button type="submit">登 录</button>
+                    <p style="color:red;">{{.Data}}</p>
+                </div>
+            </form>
         </div>
     </div>
 </div>
