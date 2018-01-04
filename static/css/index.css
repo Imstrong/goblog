@@ -25,6 +25,7 @@ body {
     font-size: 10px;
     line-height: 10px;
     padding: 5px;
+    letter-spacing: 1px;
     background: #30363e;
     color: #fff;
 }
@@ -73,7 +74,7 @@ body {
 
 .logo {
     padding: 0 20px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-size: 20px;
     font-weight: 700;
 }

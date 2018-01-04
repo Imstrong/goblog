@@ -145,5 +145,21 @@ func About(w http.ResponseWriter, r *http.Request) {
 	}
 	t.Execute(w, result)
 }
+func File(w http.ResponseWriter,r *http.Request) {
+	cookie, err := r.Cookie(session.COOKIESESSIONIDNAME)
+	var result = model.Result{}
+	if err == nil && cookie.Value != "" {
+		session := sessionManager.GetSession(cookie.Value)
+		if session != nil {
+			fmt.Printf("username:%s\n", session.Get("username"))
+			result.Data = session.Get("username").(string)
+		}
+	}
+	t, err := template.ParseFiles("views/file/file_index.tpl")
+	if err != nil {
+		errors.New("errors occured")
+	}
+	t.Execute(w, result)
+}
 
 
