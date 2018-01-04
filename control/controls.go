@@ -9,12 +9,19 @@ import (
 	"goblog/session"
 	"goblog/model"
 	"strings"
+	"goblog/dao"
+	//_ "github.com/go-sql-driver/mysql"
 	"database/sql"
-	_ "github.com/go-sql-driver/mysql"
 )
 var sessionManager *session.Manager
-
+var conn *sql.DB
 func init() {
+	dataSource:=&dao.DataSource{}
+	dataSource.Init()
+	conn=dataSource.GetConn()
+	if conn==nil {
+		errors.New("data source connection failed")
+	}
 	sessionManager = session.NewManager()
 }
 func Route(writer http.ResponseWriter, request *http.Request) {
@@ -41,17 +48,12 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			password := r.Form.Get("password")
 
 			//数据库连接
-			db, e := sql.Open("mysql", "root:123456@tcp(localhost)/blog?charset=utf8")
-			defer db.Close()
-			if e != nil {
-				fmt.Printf("error occured:%v\n", err)
-				http.Error(w, "db connection failed\n", 500)
-				return
-			}
+			//db, e := sql.Open("mysql", "root:123456@tcp(localhost)/blog?charset=utf8")
+			defer conn.Close()
 
 			u := model.User{}
 			//数据库查询
-			row := db.QueryRow("select * from user where username=? and password=?", username, password)
+			row := conn.QueryRow("select * from user where username=? and password=?", username, password)
 			err := row.Scan(&u.Id,&u.Username,&u.Password,&u.Nick_name)
 			if err != nil {
 				t, err := template.ParseFiles("views/login.tpl")
@@ -64,7 +66,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			//如果sessionid为空
 			s := sessionManager.NewSession()
 			s.Set("username", u.Nick_name)
-			sessionManager.SessionPool()[s.SID()]=s
+			//sessionManager.SessionPool()[s.SID()]=s
 			//创建cookie
 			cookie = &http.Cookie{Name: session.COOKIESESSIONIDNAME, Value: s.SID()}
 			http.SetCookie(w, cookie)
