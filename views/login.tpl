@@ -28,7 +28,11 @@
     </div>
 </div>
 <div class="footer">
-    Copyright 2018-2019 装逼之王. All Rights Reserved
+    <div class="footer-content">
+        <p>Copyright © 2018 - 2019 装逼之王. All Rights Reserved.</p>
+        <a href="http://www.miitbeian.gov.cn/"><img src="/static/img/beian.png"/> 粤ICP备17165463号-1</a>
+        <p>版权所有，违者必究</p>
+    </div>
 </div>
 </body>
 </html>

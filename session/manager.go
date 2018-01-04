@@ -2,7 +2,7 @@ package session
 
 import (
 	"sync"
-	"sessiondemo/uuid"
+	"goblog/uuid"
 	"time"
 )
 
@@ -22,7 +22,7 @@ func (m Manager) GetSession(sid string) *Session {
 func NewManager() (manager *Manager) {
 	return &Manager{maxActiveInterval:DEFAULTMAI,sessionPool:make(map[string]*Session)}
 }
-func (m Manager) NewSession() (session *Session) {
+func (m *Manager) NewSession() (session *Session) {
 	//加锁保证多线程线程安全
 	m.lock.Lock()
 	defer m.lock.Unlock()
