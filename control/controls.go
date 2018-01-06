@@ -13,13 +13,15 @@ import (
 	//_ "github.com/go-sql-driver/mysql"
 	"database/sql"
 )
+
 var sessionManager *session.Manager
 var conn *sql.DB
+
 func init() {
-	dataSource:=&dao.DataSource{}
+	dataSource := &dao.DataSource{}
 	dataSource.Init()
-	conn=dataSource.GetConn()
-	if conn==nil {
+	conn = dataSource.GetConn()
+	if conn == nil {
 		errors.New("data source connection failed")
 	}
 	sessionManager = session.NewManager()
@@ -32,7 +34,7 @@ func Route(writer http.ResponseWriter, request *http.Request) {
 		ResolveStatic(uri)
 		http.ServeFile(writer, request, uri[1:])
 	} else {
-		ResolveControl(writer,request, uri)
+		ResolveControl(writer, request, uri)
 	}
 }
 func Login(w http.ResponseWriter, r *http.Request) {
@@ -54,13 +56,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			u := model.User{}
 			//数据库查询
 			row := conn.QueryRow("select * from user where username=? and password=?", username, password)
-			err := row.Scan(&u.Id,&u.Username,&u.Password,&u.Nick_name)
+			err := row.Scan(&u.Id, &u.Username, &u.Password, &u.Nick_name)
 			if err != nil {
 				t, err := template.ParseFiles("views/login.tpl")
 				if err != nil {
 					w.Write([]byte("login page not found!\n"))
 				}
-				t.Execute(w, model.Result{Data:"用户名或密码错误"})
+				t.Execute(w, model.Result{Data: "用户名或密码错误"})
 				return
 			}
 			//如果sessionid为空
@@ -71,7 +73,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			cookie = &http.Cookie{Name: session.COOKIESESSIONIDNAME, Value: s.SID()}
 			http.SetCookie(w, cookie)
 			//重定向到首页
-			http.Redirect(w,r,"/index",302)
+			http.Redirect(w, r, "/index", 302)
 		} else {
 			s := sessionManager.GetSession(cookie.Value)
 			if s != nil {
@@ -84,15 +86,36 @@ func Login(w http.ResponseWriter, r *http.Request) {
 				t.Execute(w, username)
 				return
 			}
-			t, err := template.ParseFiles("views/login.tpl")
+			username := r.Form.Get("username")
+			password := r.Form.Get("password")
+
+			//数据库连接
+			//db, e := sql.Open("mysql", "root:123456@tcp(localhost)/blog?charset=utf8")
+			defer conn.Close()
+
+			u := model.User{}
+			//数据库查询
+			row := conn.QueryRow("select * from user where username=? and password=?", username, password)
+			err := row.Scan(&u.Id, &u.Username, &u.Password, &u.Nick_name)
 			if err != nil {
-				w.Write([]byte("login page not found!\n"))
-				t.Execute(w, nil)
+				t, err := template.ParseFiles("views/login.tpl")
+				if err != nil {
+					w.Write([]byte("login page not found!\n"))
+				}
+				t.Execute(w, model.Result{Data: "用户名或密码错误"})
+				return
 			}
-
+			//如果sessionid为空
+			s = sessionManager.NewSession()
+			s.Set("username", u.Nick_name)
+			//sessionManager.SessionPool()[s.SID()]=s
+			//创建cookie
+			cookie = &http.Cookie{Name: session.COOKIESESSIONIDNAME, Value: s.SID()}
+			http.SetCookie(w, cookie)
+			//重定向到首页
+			http.Redirect(w, r, "/index", 302)
 		}
-
-		//如果是get请求
+	//如果是get请求
 	} else {
 		if cookie, _ := r.Cookie(session.COOKIESESSIONIDNAME); cookie != nil && cookie.Value != "" {
 			session := sessionManager.GetSession(cookie.Value)
@@ -124,7 +147,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	t, err := template.ParseFiles("views/index.tpl")
-	if err != nil||t==nil {
+	if err != nil || t == nil {
 		errors.New("errors occured")
 	}
 	t.Execute(w, result)
@@ -145,7 +168,7 @@ func About(w http.ResponseWriter, r *http.Request) {
 	}
 	t.Execute(w, result)
 }
-func File(w http.ResponseWriter,r *http.Request) {
+func File(w http.ResponseWriter, r *http.Request) {
 	cookie, err := r.Cookie(session.COOKIESESSIONIDNAME)
 	var result = model.Result{}
 	if err == nil && cookie.Value != "" {
@@ -161,5 +184,3 @@ func File(w http.ResponseWriter,r *http.Request) {
 	}
 	t.Execute(w, result)
 }
-
-
