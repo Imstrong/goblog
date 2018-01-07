@@ -10,7 +10,9 @@ li {
 a {
     text-decoration: none;
 }
-
+p{
+    padding:0;margin:0;
+}
 body {
     background: url("/static/img/banner.jpg");
     -webkit-background-size: cover;
@@ -20,7 +22,6 @@ body {
 }
 
 .hair {
-    height: 10px;
     font-size: 10px;
     line-height: 10px;
     padding: 5px;
@@ -38,6 +39,11 @@ body {
     margin-right: 50px;
 }
 
+.hair:after{
+    content:"";
+    display:block;
+    clear:both;
+}
 .header,.content {
     background: rgba(0, 0, 0, .4);
     color:#fff;

@@ -51,7 +51,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 
 			//数据库连接
 			//db, e := sql.Open("mysql", "root:123456@tcp(localhost)/blog?charset=utf8")
-			defer conn.Close()
+			//defer conn.Close()
 
 			u := model.User{}
 			//数据库查询
@@ -75,6 +75,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			//重定向到首页
 			http.Redirect(w, r, "/index", 302)
 		} else {
+			//cookie不为空
 			s := sessionManager.GetSession(cookie.Value)
 			if s != nil {
 				username := s.Get("username")

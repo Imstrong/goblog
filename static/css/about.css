@@ -20,7 +20,6 @@ body {
 }
 
 .hair {
-    height: 10px;
     font-size: 10px;
     line-height: 10px;
     padding: 5px;
@@ -36,6 +35,11 @@ body {
 .hair p {
     float: right;
     margin-right: 50px;
+}
+.hair:after{
+    content:"";
+    display:block;
+    clear:both;
 }
 
 .header,.content {

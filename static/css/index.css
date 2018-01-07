@@ -21,7 +21,6 @@ body {
 }
 
 .hair {
-    height: 10px;
     font-size: 10px;
     line-height: 10px;
     padding: 5px;
@@ -30,15 +29,22 @@ body {
     color: #fff;
 }
 
-.hair a {
+.info_link {
     color: #eee;
 }
 
-.hair p {
+.hair>div {
     float: right;
     margin-right: 50px;
 }
-
+.hair>div>*{
+    display:inline-block;
+}
+.hair:after{
+    content:"";
+    display:block;
+    clear:both;
+}
 .header {
     background: rgba(0, 0, 0, .4);
 }
@@ -111,7 +117,7 @@ body {
     letter-spacing: 5px;
 }
 
-button {
+button,.inner a {
     border: none;
     background: #333;
     color: #eee;
@@ -120,7 +126,7 @@ button {
     outline: none;
 }
 
-#banner .inner button {
+#banner .inner a {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -130,7 +136,7 @@ button {
     transition: background .5s ease, transform .5s ease-in 0s;
 }
 
-#banner .inner button:hover {
+#banner .inner a:hover {
     background: #fff;
     color: #000;
 }
@@ -392,4 +398,30 @@ section {
 }
 .card:nth-child(6){
     background:rgba(0,0,0,.3);
+}
+.info_content{
+    width:120px;
+    position:absolute;
+    top:20px;
+    background:#1abc9c;
+    /*display:none;*/
+    height:0;
+    -webkit-transition: height 1s;
+    -moz-transition: height 1s;
+    -ms-transition: height 1s;
+    -o-transition: height 1s;
+    transition: height 1s;
+}
+.login_info:hover .info_content{
+    /*display:block;*/
+    height:100%;
+}
+
+.info_content  a{
+    display:block;
+    height:30px;
+    width:100%;
+}
+.info_content a:hover{
+    background:#00a1cb;
 }

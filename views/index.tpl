@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="/static/css/index.css">
 </head>
 <body>
-<div class="hair"><p>欢迎访问，{{if not .Data}}请<a href="/login">登录</a>{{else}}<a href="/about">{{.Data}}</a>{{end}}</p></div>
+<div class="hair">
+    <div>
+        <span>欢迎访问，</span>
+    <span>{{if not .Data}}请
+    <a href="/login">登录</a></span>
+    {{else}}
+        <div class="login_info">
+            <a href="/about" class="info_link">{{.Data}}</a>
+            <div class="info_content">
+                <a href="javascript:;">退出</a>
+            </div>
+        </div>
+    {{end}}
+    </div>
+</div>
 <div class="header">
     <div class="navbar">
         <div class="logo"><a href="">追影子的人</a></div>
@@ -24,7 +38,7 @@
             <h2>装逼之王</h2>
             <div class="hr"></div>
             <p class="inner_inf">爱装逼的孩子都是好孩子</p>
-            <button>了解我</button>
+            <a href="/about">了解我</a>
             <div class="more">更多</div>
             <div class="more-ico"></div>
         </div>
@@ -86,28 +100,36 @@
             又一个标题
         </h2>
         <div class="hr"></div>
-        <div class="sub-heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus atque aut commodi consequatur consequuntur, cupiditate deserunt doloribus error expedita facilis inventore nihil odit pariatur porro qui quis repellat unde.</div>
+        <div class="sub-heading">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus atque aut commodi
+            consequatur consequuntur, cupiditate deserunt doloribus error expedita facilis inventore nihil odit pariatur
+            porro qui quis repellat unde.
+        </div>
     </div>
     <div class="card-group">
         <div class="card">
             <h3>文章标题</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo minus natus quibusdam</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo
+                minus natus quibusdam</p>
         </div>
         <div class="card">
             <h3>文章标题</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo minus natus quibusdam</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo
+                minus natus quibusdam</p>
         </div>
         <div class="card">
             <h3>文章标题</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo minus natus quibusdam</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo
+                minus natus quibusdam</p>
         </div>
         <div class="card">
             <h3>文章标题</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo minus natus quibusdam</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo
+                minus natus quibusdam</p>
         </div>
         <div class="card">
             <h3>文章标题</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo minus natus quibusdam</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi earum eveniet exercitationem explicabo
+                minus natus quibusdam</p>
         </div>
         <div class="card">
             <h3>文章标题</h3>
