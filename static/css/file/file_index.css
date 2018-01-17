@@ -102,10 +102,6 @@ body {
     color: #000;
 }
 
-.content .wrapper a {
-    color: #000;
-}
-
 .wrapper-wrap {
     width: 100%;
     background: #fff;
@@ -122,22 +118,65 @@ body {
     float: left;
     padding: 2px;
 }
-
+.uk-accordion-title a{
+    font-size:15px;
+    line-height:15px;
+    height:15px;
+    display:none;
+    position:relative;
+    left:5px;
+    top:3px;
+}
+.uk-open .uk-accordion-title a{
+    display:inline-block;
+}
 .uk-accordion-content {
     height: 101px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
-
+.uk-accordion-content a{
+    color:#fff;
+}
 .clearfix::after {
     content: "";
     display: block;
     clear: both;
-'
 }
 
 .title-icon {
     position: relative;
     top: 4px;
+}
+.uk-accordion-content .uk-badge{
+    color:#fff;
+    padding:10px;
+    margin:5px 0 0 0;
+}
+.article-list{
+    width:100%;
+    background:#fff;
+}
+.article-list-wrapper{
+    width:60%;
+    min-width:1200px;
+    margin:0 auto;
+}
+.article{
+    float:left;
+    width:550px;
+    margin:50px 0;
+}
+.article:nth-child(even){
+    margin-left:100px;
+}
+.content .wrapper-wrap{
+    -webkit-box-shadow: 0 10px 5px #888888;
+    -moz-box-shadow: 0 10px 5px #888888;
+    box-shadow: 0 10px 5px #888888;
+}
+.uk-card-body p{
+    height:50px;
+    -ms-text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
 }
