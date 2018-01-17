@@ -22,7 +22,6 @@
                     <a class="uk-accordion-title" href="#"><p uk-icon="icon:code" class="title-icon"></p>
                         <p>编程</p></a>
                     <div class="uk-accordion-content">
-                        <hr class="uk-divider-icon">
                         <a class="uk-button uk-button-default">Java</a>
                         <a class="uk-button uk-button-default">多线程</a>
                         <a class="uk-button uk-button-default">核心类库</a>
@@ -37,14 +36,12 @@
                         <a class="uk-button uk-button-default">数据结构</a>
                         <a class="uk-button uk-button-default">设计模式</a>
                         <a class="uk-button uk-button-default">算法</a>
-                        <hr/>
                     </div>
                 </li>
                 <li>
                     <a class="uk-accordion-title" href="#"><p uk-icon="icon:pencil" class="title-icon"></p>
                         <p>读书</p></a>
                     <div class="uk-accordion-content">
-                        <hr class="uk-divider-icon">
                         <a class="uk-button uk-button-default">Java</a>
                         <a class="uk-button uk-button-default">多线程</a>
                         <a class="uk-button uk-button-default">核心类库</a>
@@ -52,14 +49,12 @@
                         <a class="uk-button uk-button-default">数据结构</a>
                         <a class="uk-button uk-button-default">设计模式</a>
                         <a class="uk-button uk-button-default">算法</a>
-                        <hr/>
                     </div>
                 </li>
                 <li>
                     <a class="uk-accordion-title" href="#"><p uk-icon="icon:happy" class="title-icon"></p>
                         <p>生活</p></a>
                     <div class="uk-accordion-content">
-                        <hr class="uk-divider-icon">
                         <a class="uk-button uk-button-default">Java</a>
                         <a class="uk-button uk-button-default">多线程</a>
                         <a class="uk-button uk-button-default">核心类库</a>
@@ -67,7 +62,6 @@
                         <a class="uk-button uk-button-default">数据结构</a>
                         <a class="uk-button uk-button-default">设计模式</a>
                         <a class="uk-button uk-button-default">算法</a>
-                        <hr/>
                     </div>
                 </li>
             </ul>
