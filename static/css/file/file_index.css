@@ -10,9 +10,12 @@ li {
 a {
     text-decoration: none;
 }
-p{
-    padding:0;margin:0;
+
+p {
+    padding: 0;
+    margin: 0;
 }
+
 body {
     background: url("/static/img/banner.jpg");
     -webkit-background-size: cover;
@@ -39,15 +42,20 @@ body {
     margin-right: 50px;
 }
 
-.hair:after{
-    content:"";
-    display:block;
-    clear:both;
+.hair:after {
+    content: "";
+    display: block;
+    clear: both;
 }
-.header,.content {
-    background: rgba(0, 0, 0, .4);
-    color:#fff;
-    width:100%;
+
+.header {
+    background: #fff;
+}
+
+.header, .content {
+    /*background: rgba(255, 255, 255, 1);*/
+    /*color:#000;*/
+    width: 100%;
 }
 
 .logo {
@@ -60,42 +68,76 @@ body {
 }
 
 .logo a {
-    color: #fff;
+    color: #000;
 }
+
 .footer {
-    padding:50px;
+    padding: 50px;
     text-align: center;
     color: #f9fafb;
     line-height: 30px;
     background: #20252aee;
-    margin-top:700px;
+    margin-top: 700px;
 }
-.footer-content{
-    line-height:30px;
+
+.footer-content {
+    line-height: 30px;
 }
-.footer-content a{
-    color:#fff;
+
+.footer-content a {
+    color: #fff;
 }
-.footer-content img{
-    position:relative;
-    top:2px;
-    width:15px;
-    height:15px;
+
+.footer-content img {
+    position: relative;
+    top: 2px;
+    width: 15px;
+    height: 15px;
 }
+
 .content .wrapper {
-    width:900px;
-    height:300px;
-    background:#00a1cb;
-    margin:0 auto;
-    color:#000;
+    width: 900px;
+    margin: 0 auto;
+    padding: 100px 0 30px;
+    color: #000;
 }
+
+.content .wrapper a {
+    color: #000;
+}
+
+.wrapper-wrap {
+    width: 100%;
+    background: #fff;
+}
+
 .wrapper > div {
-    width:300px;
-    float:left;
+    width: 300px;
+    float: left;
     box-sizing: border-box;
 }
-.wrapper:after{
-    content:"";
-    display:block;
-    clear:both;
+
+.uk-accordion-title p {
+    text-align: center;
+    float: left;
+    padding: 2px;
+}
+
+.uk-accordion-content {
+    height: 101px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+'
+}
+
+.title-icon {
+    position: relative;
+    top: 4px;
 }
