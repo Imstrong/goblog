@@ -15,7 +15,9 @@ p {
     padding: 0;
     margin: 0;
 }
-
+h4{
+    margin:0;
+}
 body {
     background: url("/static/img/banner.jpg");
     -webkit-background-size: cover;
@@ -202,17 +204,18 @@ body {
     box-shadow: 0 5px 5px #dddddd;
 }
 .uk-card-body p{
-    height:50px;
+    height:100%;
     -ms-text-overflow: ellipsis;
     overflow: hidden;
     text-overflow: ellipsis;
     /*white-space: nowrap;*/
 }
 .uk-card-header {
-    padding: 10px 30px;
+    padding: 10px 15px;
 }
 .uk-card-body {
-    padding: 15px 30px;
+    padding: 15px 15px;
+    height:70px;
 }
 .list-footer{
     width:100%;
@@ -222,4 +225,7 @@ body {
 .list-footer .uk-pagination{
     padding:20px;
     margin:0;
+}
+.article-title-text{
+    font-size:1.5rem;
 }
