@@ -9,9 +9,7 @@
 <body>
 <div class="hair">
     <div>
-        <span>欢迎访问，</span>
-    <span>{{if not .Data}}请
-    <a href="/login">登录</a></span>
+        <span>欢迎访问，</span><span>{{if not .Data}}请<a href="/login">登录</a></span>
     {{else}}
         <div class="login_info">
             <a href="/about" class="info_link">{{.Data}}</a>

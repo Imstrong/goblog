@@ -47,11 +47,41 @@ body {
     color:#fff;
     width:100%;
 }
+.header {
+    background: rgba(0, 0, 0, .4);
+}
+
+.navbar ul {
+    margin: 0;
+    height: 50px;
+    list-style: none;
+    float: right;
+}
+
+.navbar ul li, .navbar .logo {
+    display: inline-block;
+    line-height: 50px;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    line-height: inherit;
+    display: inline-block;
+    height: inherit;
+    color: #fff;
+    -webkit-transition: color .5s;
+    -moz-transition: color .5s;
+    -ms-transition: color .5s;
+    -o-transition: color .5s;
+    transition: color .5s;
+}
+
+.navbar ul li a:hover {
+    color: rgba(255, 255, 255, .5);
+}
 
 .logo {
-    line-height: 50px;
-    /* padding: 20px 20px; */
-    padding-left: 20px;
+    padding: 0 20px;
     letter-spacing: 2px;
     font-size: 20px;
     font-weight: 700;

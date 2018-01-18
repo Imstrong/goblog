@@ -11,6 +11,12 @@
 <div class="header">
     <div class="navbar">
         <div class="logo"><a href="/">追影子的人</a></div>
+        <ul>
+            <li><a href="/file">归档</a></li>
+            <li><a href="/leave_message">留言</a></li>
+            <li><a href="/about">关于我</a></li>
+            <menu class="menu"></menu>
+        </ul>
     </div>
 </div>
 <div class="content">

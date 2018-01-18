@@ -28,7 +28,9 @@ body {
     background: #30363e;
     color: #fff;
 }
-
+.hair a{
+    color:#fff;
+}
 .info_link {
     color: #eee;
 }
