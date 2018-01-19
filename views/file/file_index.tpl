@@ -5,6 +5,7 @@
     <title>Title</title>
     <link rel="stylesheet" href="static/css/normalize.css">
     <link rel="stylesheet" href="static/uikit-3.0.0/css/uikit.css">
+    <link rel="stylesheet" href="static/editor.md-master/css/editormd.min.css">
     <link rel="stylesheet" href="static/css/file/file_index.css">
 </head>
 <body>
@@ -22,6 +23,29 @@
     </div>
 </div>
 <div class="content">
+    {{/*<div id="article-edit" class="uk-modal-full" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+            <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+                <div id="test-editormd">
+                <textarea style="display:none;">
+                </textarea>
+                </div>
+            </div>
+        </div>
+    </div>*/}}
+        <div id="article-edit" class="uk-modal-full" uk-modal>
+            <div class="uk-modal-dialog">
+                <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+                <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+                    <div class="uk-background-cover" style="background-image: url('../docs/images/photo.jpg');" uk-height-viewport></div>
+                    <div class="uk-padding-large">
+                        <h1>Headline</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="wrapper-wrap">
         <div class="wrapper">
             <ul uk-accordion="collapsible: false">
@@ -91,21 +115,22 @@
     <div class="article-list">
         <div class="article-list-wrapper clearfix">
             <div class="list-toolbar">
-                <nav class="uk-navbar uk-navbar-container uk-margin">
-                    <div class="uk-navbar-right">
-                        <div>
-                            <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
-                            <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
-                                <form class="uk-search uk-search-navbar uk-width-1-1">
-                                    <input class="uk-search-input" type="search" placeholder="Search..." autofocus>
-                                </form>
+                <span class="cur-position">编程 > Java</span>
+                <div class="tools">
+                    <nav class="uk-navbar uk-navbar-container">
+                        <div class="uk-navbar-right">
+                            <div>
+                                <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+                                <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+                                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                                        <input class="uk-search-input" type="search" placeholder="Search..." autofocus>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </nav>
-                <button class="uk-button uk-button-primary">
-                    <i uk-icon="icon:pencil"></i>写文章
-                </button>
+                    </nav>
+                    <a class="uk-button uk-button-default" href="#article-edit" uk-toggle><i uk-icon="icon:pencil"></i>写文章</a>
+                </div>
             </div>
             <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article">
                 <div class="uk-card-header">
@@ -132,7 +157,8 @@
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
-                            <a class="uk-button uk-button-text"><p class="article-title-text">Java中多线程程序设计的要点</p></a>
+                            <a class="uk-button uk-button-text"><p class="article-title-text .uk-text-bold">
+                                Java中多线程程序设计的要点</p></a>
                             <p class="uk-text-meta uk-margin-remove-top">
                                 <time datetime="2016-04-01T19:00">April 01, 2016</time>
                             </p>
@@ -239,12 +265,10 @@
         <p>版权所有，违者必究</p>
     </div>
 </div>
-<script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="static/js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="static/uikit-3.0.0/js/uikit.js"></script>
 <script type="text/javascript" src="static/uikit-3.0.0/js/uikit-icons.js"></script>
-<script type="text/javascript" src="/static/js/about.js"></script>
-<script type="text/javascript">
-
-</script>
+<script type="text/javascript" src="static/editor.md-master/editormd.min.js"></script>
+<script type="text/javascript" src="static/js/file_index.js"></script>
 </body>
 </html>

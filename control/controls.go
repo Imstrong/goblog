@@ -31,8 +31,8 @@ func Route(writer http.ResponseWriter, request *http.Request) {
 	log.Printf("Request URL : %s\n", uri)
 	//以/static/开头的为静态资源请求，直接使用其路径获取文件并写出为流
 	if strings.HasPrefix(uri, "/static/") || uri == "/favicon.ico" {
-		ResolveStatic(uri)
-		http.ServeFile(writer, request, uri[1:])
+		ResolveStatic(writer,request,uri)
+		//http.ServeFile(writer, request, uri[1:])
 	} else {
 		ResolveControl(writer, request, uri)
 	}

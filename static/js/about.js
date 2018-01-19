@@ -30,4 +30,13 @@ $(function () {
         $(".desc").css("display","none");
         $(".photo:last-child>.desc").css("display","block");
     })
+    var testEditor;
+
+    testEditor = editormd("test-editormd", {
+        width   : "90%",
+        height  : 640,
+        syncScrolling : "single",
+        path    : "../lib/"
+    });
+
 })
