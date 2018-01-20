@@ -23,17 +23,6 @@
     </div>
 </div>
 <div class="content">
-    <div id="article-edit" class="uk-modal-full" bg-close="false" uk-modal>
-        <div class="uk-modal-dialog">
-            <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-            <div class="uk-flex-middle" uk-grid>
-                <div id="test-editormd" uk-height-viewport>
-                <textarea style="display:none;">
-                </textarea>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="wrapper-wrap">
         <div class="wrapper">
             <ul uk-accordion="collapsible: false">
@@ -117,7 +106,7 @@
                             </div>
                         </div>
                     </nav>
-                    <a class="uk-button uk-button-default" href="#article-edit" uk-toggle><i uk-icon="icon:pencil"></i>写文章</a>
+                    <a class="uk-button uk-button-default" href="/file/edit" uk-toggle><i uk-icon="icon:pencil"></i>写文章</a>
                 </div>
             </div>
             <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article">

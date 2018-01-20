@@ -181,3 +181,11 @@ func File(w http.ResponseWriter, r *http.Request) {
 	}
 	t.Execute(w, result)
 }
+func FileEdit(w http.ResponseWriter,r *http.Request){
+	err, result := setCookie(r)
+	t,err := template.ParseFiles("views/file/file_edit.tpl")
+	if err != nil{
+		errors.New("file not exist or not a valid path")
+	}
+	t.Execute(w,result)
+}

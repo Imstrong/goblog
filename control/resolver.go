@@ -22,6 +22,9 @@ func ResolveControl(w http.ResponseWriter,r *http.Request, ctrlName string) {
 		break
 	case "/file":
 		File(w,r)
+		break
+	case "/file/edit":
+		FileEdit(w,r)
 	}
 	if err != nil && os.IsNotExist(err) {
 		log.Printf("no napping found for path %s\n", ctrlName)
