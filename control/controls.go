@@ -26,6 +26,10 @@ func init() {
 	}
 	sessionManager = session.NewManager()
 }
+
+/**
+根处理器，分为静态文件请求和动态url请求分开处理
+ */
 func Route(writer http.ResponseWriter, request *http.Request) {
 	uri := request.RequestURI
 	log.Printf("Request URL : %s\n", uri)
@@ -37,6 +41,10 @@ func Route(writer http.ResponseWriter, request *http.Request) {
 		ResolveControl(writer, request, uri)
 	}
 }
+
+/**
+登录处理器
+ */
 func Login(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		r.ParseForm()
@@ -138,15 +146,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 }
 func Index(w http.ResponseWriter, r *http.Request) {
 	//获取cookie
-	cookie, err := r.Cookie(session.COOKIESESSIONIDNAME)
-	var result = model.Result{}
-	if err == nil && cookie.Value != "" {
-		session := sessionManager.GetSession(cookie.Value)
-		if session != nil {
-			fmt.Printf("username:%s\n", session.Get("username"))
-			result.Data = session.Get("username").(string)
-		}
-	}
+	err, result := setCookie(r)
 	t, err := template.ParseFiles("views/index.tpl")
 	if err != nil || t == nil {
 		errors.New("errors occured")
@@ -154,22 +154,14 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	t.Execute(w, result)
 }
 func About(w http.ResponseWriter, r *http.Request) {
-	cookie, err := r.Cookie(session.COOKIESESSIONIDNAME)
-	var result = model.Result{}
-	if err == nil && cookie.Value != "" {
-		session := sessionManager.GetSession(cookie.Value)
-		if session != nil {
-			fmt.Printf("username:%s\n", session.Get("username"))
-			result.Data = session.Get("username").(string)
-		}
-	}
+	err, result := setCookie(r)
 	t, err := template.ParseFiles("views/about.tpl")
 	if err != nil {
 		errors.New("errors occured")
 	}
 	t.Execute(w, result)
 }
-func File(w http.ResponseWriter, r *http.Request) {
+func setCookie(r *http.Request) (error, model.Result) {
 	cookie, err := r.Cookie(session.COOKIESESSIONIDNAME)
 	var result = model.Result{}
 	if err == nil && cookie.Value != "" {
@@ -179,6 +171,10 @@ func File(w http.ResponseWriter, r *http.Request) {
 			result.Data = session.Get("username").(string)
 		}
 	}
+	return err, result
+}
+func File(w http.ResponseWriter, r *http.Request) {
+	err, result := setCookie(r)
 	t, err := template.ParseFiles("views/file/file_index.tpl")
 	if err != nil {
 		errors.New("errors occured")
