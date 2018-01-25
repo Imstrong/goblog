@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 	"fmt"
-	"goblog/control"
+	"goblog/src/control"
 )
 
 func main() {

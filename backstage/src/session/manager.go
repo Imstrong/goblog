@@ -2,7 +2,7 @@ package session
 
 import (
 	"sync"
-	"goblog/uuid"
+	"goblog/src/uuid"
 	"time"
 )
 

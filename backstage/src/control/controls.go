@@ -6,10 +6,10 @@ import (
 	"text/template"
 	"fmt"
 	"errors"
-	"goblog/session"
-	"goblog/model"
+	"goblog/src/session"
+	"goblog/src/model"
 	"strings"
-	"goblog/dao"
+	"goblog/src/dao"
 	//_ "github.com/go-sql-driver/mysql"
 	"database/sql"
 )

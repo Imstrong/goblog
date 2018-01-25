@@ -2,7 +2,7 @@ package dao
 
 import (
 	"database/sql"
-	"goblog/conf"
+	"goblog/src/confconf"
 	_ "github.com/go-sql-driver/mysql"
 )
 

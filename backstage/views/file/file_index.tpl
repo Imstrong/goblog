@@ -109,7 +109,7 @@
                     <a class="uk-button uk-button-default" href="/file/edit" uk-toggle><i uk-icon="icon:pencil"></i>写文章</a>
                 </div>
             </div>
-            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article">
+            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article" uk-scrollspy="cls:uk-animation-slide-bottom;">
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
@@ -130,7 +130,7 @@
                     </p>
                 </div>
             </div>
-            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article">
+            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article" uk-scrollspy="cls:uk-animation-slide-bottom;">
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
@@ -152,7 +152,7 @@
                     </p>
                 </div>
             </div>
-            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article">
+            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article" uk-scrollspy="cls:uk-animation-slide-bottom;">
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
@@ -173,7 +173,7 @@
                     </p>
                 </div>
             </div>
-            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article">
+            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article" uk-scrollspy="cls:uk-animation-slide-bottom;">
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
@@ -194,7 +194,7 @@
                     </p>
                 </div>
             </div>
-            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article">
+            <div class="uk-card uk-card-default uk-card-hover uk-width-1-2@m article" uk-scrollspy="cls:uk-animation-slide-bottom;">
                 <div class="uk-card-header">
                     <div class="uk-grid-small uk-flex-middle" uk-grid>
                         <div class="uk-width-expand">
