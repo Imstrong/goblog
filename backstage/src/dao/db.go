@@ -2,7 +2,7 @@ package dao
 
 import (
 	"database/sql"
-	"goblog/src/confconf"
+	"goblog/backstage/src/conf"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -12,7 +12,7 @@ type DataSource struct {
 
 func (ds *DataSource) Init() {
 	config := &conf.Configuration{Properties: make(map[string]string)}
-	err := config.Read("conf/app.conf")
+	err := config.Read("src/conf/app.conf")
 	if err != nil {
 		panic(err)
 	}

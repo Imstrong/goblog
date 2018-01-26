@@ -114,13 +114,13 @@ var merge = require("webpack-merge")
 exports.entries = function () {
   var entryJss = glob.sync(PAGE_PATH + '/*/*.js')
   var map = {}
-  entryJss.forEach((filePath) => {
+  entryJss.forEach((entryJs) => {
 
     //获得文件名（不含后缀）
-    var fileName = filePath.substring(filePath.lastIndexOf("\/") + 1, filePath.lastIndexOf("."))
+    var fileName = entryJs.substring(entryJs.lastIndexOf("\/") + 1, entryJs.lastIndexOf("."))
 
     //一个文件名对应一个路径
-    map[fileName] = filePath
+    map[fileName] = entryJs
   })
   return map
 }
@@ -129,10 +129,10 @@ exports.entries = function () {
 exports.htmlPlugin = function () {
   let entryHtmls = glob.sync(PAGE_PATH + "/*/*.html")
   let arr = []
-  entryHtmls.forEach((htmlFile) => {
-    let fileName = filePath.substring(filePath.lastIndexOf("\/") + 1, filePath.lastIndexOf("."))
+  entryHtmls.forEach((entryHtml) => {
+    let fileName = entryHtml.substring(entryHtml.lastIndexOf("\/") + 1, entryHtml.lastIndexOf("."))
     let conf = {
-      template: filePath,
+      template: entryHtml,
       fileName: fileName + ".tpl",
       //页面模板要引入的js文件，以下面这几个词为前缀
       chunks: ['manifest', 'vendor', fileName],
