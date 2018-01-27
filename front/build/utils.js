@@ -107,11 +107,13 @@ var glob = require("glob")
 var htmlWebpackPlugin = require("html-webpack-plugin")
 //3.保存多页面入口文件所在根目录（从哪里开始分页面）
 const PAGE_PATH = path.resolve(__dirname, "../src/pages")
+console.log('PAGE_PATH:'+PAGE_PATH)
 //4.引入webpack-merge
 var merge = require("webpack-merge")
 
 //二.开始多入口配置
 exports.entries = function () {
+  console.log(PAGE_PATH)
   var entryJss = glob.sync(PAGE_PATH + '/*/*.js')
   var map = {}
   entryJss.forEach((entryJs) => {
@@ -133,25 +135,25 @@ exports.htmlPlugin = function () {
     let fileName = entryHtml.substring(entryHtml.lastIndexOf("\/") + 1, entryHtml.lastIndexOf("."))
     let conf = {
       template: entryHtml,
-      fileName: fileName + ".tpl",
+      filename: fileName + ".tpl",
       //页面模板要引入的js文件，以下面这几个词为前缀
       chunks: ['manifest', 'vendor', fileName],
       inject: true,
-      // }
-      // //如果是production模式，增加一些配置
-      // if(process.env.NODE_ENV=='production'){
-      //   conf=merge(conf,{
-      minify: {
-        //删除注释
-        removeComments: true,
-        //删除回车
-        collapseWhitespace: true,
-        //删除属性的引号
-        removeAttributeQuotes: true
-      },
-      //js文件的引用顺序，有四种选择：'none','auto','dependency','{function}'
-      chunksSortMode: 'dependency'
-      // })
+    }
+    //如果是production模式，增加一些配置
+    if (process.env.NODE_ENV == 'production') {
+      conf = merge(conf, {
+        minify: {
+          //删除注释
+          removeComments: true,
+          //删除回车
+          collapseWhitespace: true,
+          //删除属性的引号
+          removeAttributeQuotes: true
+        },
+        //js文件的引用顺序，有四种选择：'none','auto','dependency','{function}'
+        chunksSortMode: 'dependency'
+      })
     }
     arr.push(new htmlWebpackPlugin(conf))
   })

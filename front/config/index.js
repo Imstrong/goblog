@@ -45,12 +45,14 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
 
-    // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    //多页面模板，注释掉旧入口index.html
+    // index: path.resolve(__dirname, '../dist/index.html'),
+
+    // 多页面配置，修改模板文件输出目录
+    assetsRoot: path.resolve(__dirname, '../../backstage/WebContent'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
 
     /**
      * Source Maps
