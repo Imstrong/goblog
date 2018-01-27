@@ -1,4 +1,4 @@
-package control
+package test_control
 
 import (
 	"net/http"
@@ -32,6 +32,8 @@ func ResolveControl(w http.ResponseWriter,r *http.Request, ctrlName string) {
 }
 func ResolveStatic(w http.ResponseWriter,r *http.Request,uri string) {
 	fmt.Printf("%s\n", uri[1:])
+	uri="/WebContent/"+uri
+	fmt.Printf("uri:%s\n",uri)
 	//处理静态资源版本号参数：fontawesome-webfont.ttf?v=4.3.0
 	paramIndex:=strings.Index(uri,"?")
 	var file *os.File
